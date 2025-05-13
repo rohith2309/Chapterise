@@ -2,12 +2,14 @@
 import { useState } from 'react';
 import { registerUser, signInWithGoogle } from '../../lib/Auth';
 import AuthForm from '../../Components/AuthForm';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import DashBoard from '../../Pages/DashBoard';
 
 const SignUp = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
+  const navigate = useNavigate();
 
   const handleSignUp = async (email, password) => {
     setLoading(true);
@@ -15,6 +17,7 @@ const SignUp = () => {
     try {
       await registerUser(email, password);
       setSuccess(true);
+      navigate('/Home')
     } catch (err) {
       setError(err.message || 'Registration failed');
       console.error('Registration error:', err);

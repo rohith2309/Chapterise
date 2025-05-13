@@ -1,13 +1,16 @@
 // src/LoginModule/SignIn.jsx
 import { useState } from 'react';
 import { signInUser, signInWithGoogle } from '../../lib/Auth';
+
 import AuthForm from '../../Components/AuthForm';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import DashBoard from '../../Pages/DashBoard';
 
 const SignIn = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
+  const navigate = useNavigate();
 
   const handleSignIn = async (email, password) => {
     setLoading(true);
@@ -15,6 +18,7 @@ const SignIn = () => {
     try {
       await signInUser(email, password);
       setSuccess(true);
+      navigate('/Home')
     } catch (err) {
       setError(err.message || 'Sign-in failed');
       console.error('Sign-in error:', err);

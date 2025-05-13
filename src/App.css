@@ -1,9 +1,80 @@
 /* src/App.css */
-.app-container {
-  max-width: 400px;
-  margin: 50px auto;
+body {
+  font-family: 'Inter', sans-serif; /* Use a clean, modern font */
+  background-color: #f9fafb; /* Light gray background */
+  margin: 0;
+  padding: 0;
+  color: #333; /* Dark gray text for better readability */
+}
+h2, h4, h5 {
+  margin: 0;
+  text-align: center;
+  color: #1f2937; /* Darker gray for headings */
+}
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
 }
 
+h4 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+h5 {
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+nav {
+  background: #ffffff; /* White background for navbar */
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb; /* Light gray border */
+}
+nav a {
+  color: #374151; /* Dark gray links */
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 1rem;
+  text-decoration: none;
+}
+a {
+  color: #3b82f6; /* Blue links */
+  text-decoration: none;
+  font-weight: 500;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6b7280; /* Muted gray for labels */
+  margin-bottom: 0.5rem;
+}
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db; /* Light gray border */
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #374151; /* Darker gray text */
+  background-color: #f9fafb; /* Light gray background */
+  box-sizing: border-box;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+button:hover {
+  background-color: #2563eb; /* Darker blue on hover */
+}
 .auth-container {
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -37,6 +108,7 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  display: block;
 }
 
 button:disabled {
@@ -68,4 +140,20 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+.horizontal-course-card {
+  display: flex;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.sign-out-button{
+  
+  padding: 10px 20px;
+  max-width: 100px;
+  min-width: 100px;
+
 }

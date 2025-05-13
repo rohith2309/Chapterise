@@ -4,10 +4,13 @@ import { SignUp, SignIn } from '../Components/LoginModule';
 
 const Login = () => {
   return (
-    <Routes>
+  <>
+   
+    <Routes>  
       <Route path="signup" element={<SignUp />} />
       <Route path="" element={<SignIn />} />
     </Routes>
+  </>
   );
 };
 
