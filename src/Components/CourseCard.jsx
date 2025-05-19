@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './CouseCard.css'; // Import your CSS file for styling
 
-function CourseCard({ videoId }) {
+function CourseCard({ videoId,onClick }) {
   const [videoData, setVideoData] = useState(null);
   const [error, setError] = useState(null);
 
@@ -26,6 +26,7 @@ function CourseCard({ videoId }) {
     };
 
     fetchVideoDetails();
+
   }, [videoId]);
 
   if (error) {
@@ -61,7 +62,7 @@ function CourseCard({ videoId }) {
   };
 
   return (
-    <div className="course-card">
+    <div className="course-card" onClick={onClick}>
       <div className="course-card-image">
         <img
           src={videoData.thumbnails.high.url || videoData.thumbnails.medium.url}
@@ -71,7 +72,7 @@ function CourseCard({ videoId }) {
       <div className="course-content">
         <div className="course-label">VIDEO</div>
         <h3 className="course-title">{videoData.title}</h3>
-        <p className="course-description">{videoData.description}</p>
+        <p className="course-description">{videoData.description.slice(0,70)+'...'}</p>
         
       
         

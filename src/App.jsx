@@ -9,6 +9,7 @@ import './App.css';
 import { AuthProvider } from './context/AuthContext';
 import SignOut from './Components/LoginModule/SignOut';
 import { useAuth } from './context/AuthContext';
+import Course from './Pages/Course';
 
 
 function NavBar() {
@@ -20,13 +21,7 @@ function NavBar() {
     <h4>stay focused!</h4>
     <h5>{userName}</h5>
     <nav
-        style={{
-          background: '#f0f0f0',
-          padding: '10px ',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center'
-        }}
+        
       >
         <div style={{ display: 'flex', gap: '10px' }}>
           <Link to="/">Course</Link>
@@ -57,7 +52,7 @@ function App() {
           <Route element={<PrivateRoute />} >
            <Route path="/dashboard" element={<DashBoard />} />
           </Route>
-          
+          <Route path="/course/:id" element={<Course/>} />
           <Route path="/login/*" element={<Login />} />
           <Route path="/player" element={<Player />} />
       

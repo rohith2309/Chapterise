@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './VideoLink.css'; 
 
 function VideoLink({ onSubmit }) {
   // Handle form submission 
@@ -25,12 +26,12 @@ function VideoLink({ onSubmit }) {
 
   return (
     <div className="video-link mb-6">
-      <h2 className="text-lg font-semibold mb-2">Drop your video URL:</h2>
+     
       <input
         type="text"
         placeholder="Please enter the YouTube URL"
         id="url"
-        className="p-2 w-full border rounded mb-2"
+        className="input-field"
         onChange={(e) => seturl(e.target.value)}
       />
       <button

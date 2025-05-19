@@ -1,10 +1,10 @@
 import React from 'react'
-
+import { useNavigate } from 'react-router-dom'
 import CourseCard from '../Components/CourseCard'
 import { useAuth } from '../context/AuthContext'
 import './DashBoard.css' 
 const DashBoard = () => {
-   
+   const navigate = useNavigate()
    const { course }=useAuth(); // Replace with the actual user ID
 
    
@@ -20,7 +20,8 @@ const DashBoard = () => {
         
       {course.map((videoId) => (
         <CourseCard videoId={videoId} 
-        key={videoId}/>
+        key={videoId} 
+        onClick={() => navigate(`/course/${videoId}`)}/>
       ))}
       </div>
     </div>  

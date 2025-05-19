@@ -18,7 +18,7 @@ const SignIn = () => {
     try {
       await signInUser(email, password);
       setSuccess(true);
-      navigate('/Home')
+      navigate('/')
     } catch (err) {
       setError(err.message || 'Sign-in failed');
       console.error('Sign-in error:', err);

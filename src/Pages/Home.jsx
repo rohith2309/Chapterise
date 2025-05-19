@@ -6,6 +6,7 @@ import VideoLink from '../Components/VideoLink';
 import { updateDoc,doc } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 import { useAuth } from '../context/AuthContext';
+import './Home.css'; // Import your CSS file for styling
 
 function Home() {
   const {course,user} = useAuth();
@@ -39,9 +40,11 @@ function Home() {
   };
 
   return (
-    <div className="courses-page p-5">
-      <h1 className="text-2xl font-bold mb-4">Our Courses</h1>
-      <VideoLink onSubmit={handleVideoSubmit} />
+    <div className="Home-page">
+      <div className="course-container">
+        
+         <VideoLink onSubmit={handleVideoSubmit} />
+      </div>
       
     </div>
   );

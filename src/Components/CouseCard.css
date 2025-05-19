@@ -16,7 +16,7 @@
   
   .course-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 10PX 15px 15px rgba(255, 166, 2, 0.788);
   }
   
   .course-card-image {
@@ -66,9 +66,8 @@
     font-size: 14px;
     line-height: 1.5;
     margin-bottom: 12px;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+    display: box;
+    line-clamp: 3;
     overflow: hidden;
   }
   
@@ -80,9 +79,7 @@
     color: #666;
   }
   
-  .course-tag {
-    margin-right: 4px;
-  }
+  
   
   .course-author {
     margin-top: auto;

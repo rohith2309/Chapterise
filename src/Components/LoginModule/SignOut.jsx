@@ -1,8 +1,10 @@
 import { SignOutuser } from "../../lib/Auth";
-
+import { useNavigate } from "react-router-dom";
 export default function SignOut({ auth }) {
-  const handleSignOut = () => {
+    const navigate = useNavigate();
+    const handleSignOut = () => {
     SignOutuser(auth);
+    navigate("/login");
   };
 
   return (

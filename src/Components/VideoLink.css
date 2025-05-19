@@ -1,0 +1,33 @@
+input{
+    width: 50vw;
+    padding: 10px;
+    color: #ffa600;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(206, 24, 24, 0.651);
+    background-color: #221e1e85;
+    outline: none;
+    border: none;
+    border-bottom: 5px solid #ccc;
+    
+}
+input:focus{
+    border-bottom: 5px solid #ffa600;
+    box-shadow: 0 2px 4px rgba(240, 147, 8, 0.651);
+}
+button{
+    width: 50vw;
+    padding:20px;
+    margin-top: 20px;
+    background-color: #ffa600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    font-size: 15px;
+    box-shadow: 0 2px 4px rgba(240, 147, 8, 0.651);
+    
+}
