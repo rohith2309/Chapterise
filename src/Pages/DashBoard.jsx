@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext'
 import './DashBoard.css' 
 const DashBoard = () => {
    const navigate = useNavigate()
-   const { course }=useAuth(); // Replace with the actual user ID
+   const { course }=useAuth(); 
 
    
 
@@ -18,7 +18,7 @@ const DashBoard = () => {
       <h1 className="text-2xl font-bold mb-4">Your Courses</h1>
       <div className='course-container'>
         
-      {course.map((videoId) => (
+      {Object.keys(course).map((videoId) => (
         <CourseCard videoId={videoId} 
         key={videoId} 
         onClick={() => navigate(`/course/${videoId}`)}/>
