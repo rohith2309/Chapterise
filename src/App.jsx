@@ -17,9 +17,9 @@ function NavBar() {
   
   const userName = user ? 'Welcome back '+user['email'].split('@')[0] : 'Hi there! Please login / SignUP !';
   return (<>
-    <h2>Chapterise</h2>
+    <h1>Chapterise</h1>
     <h4>stay focused!</h4>
-    <h5>{userName}</h5>
+    <h5 className='username'>{userName}</h5>
     <nav
         
       >
@@ -39,22 +39,25 @@ function NavBar() {
 
 
 function App() {
-  // Replace with actual user state from context or props
+  
   return (
     <AuthProvider>
     
     
     <Router>
+      <NavBar />
       <div className="app-container">
-        <NavBar />
         <Routes>
-          <Route path="/" element={<Home/>} />
+        
+          
           <Route element={<PrivateRoute />} >
+           <Route path="/" element={<Home/>} />
            <Route path="/dashboard" element={<DashBoard />} />
           </Route>
+          
           <Route path="/course/:id" element={<Course/>} />
           <Route path="/login/*" element={<Login />} />
-          <Route path="/player" element={<Player />} />
+          
       
         </Routes>
       </div>

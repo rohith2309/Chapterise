@@ -17,7 +17,7 @@ const SignUp = () => {
     try {
       await registerUser(email, password);
       setSuccess(true);
-      navigate('/Home')
+      navigate('/')
     } catch (err) {
       setError(err.message || 'Registration failed');
       console.error('Registration error:', err);
@@ -26,7 +26,7 @@ const SignUp = () => {
     }
   };
 
-  const handleGoogleSignIn = async () => {
+  /*const handleGoogleSignIn = async () => {
     setLoading(true);
     setError(null);
     try {
@@ -38,7 +38,7 @@ const SignUp = () => {
     } finally {
       setLoading(false);
     }
-  };
+  };*/
 
   return (
     <div className="auth-container">
@@ -50,9 +50,7 @@ const SignUp = () => {
         error={error}
         success={success}
       />
-      <button onClick={handleGoogleSignIn} disabled={loading} style={{ marginTop: '10px', width: '100%', padding: '10px' }}>
-        {loading ? 'Processing...' : 'Continue with Google'}
-      </button>
+      
       <p style={{ textAlign: 'center', marginTop: '15px' }}>
         Already have an account? <Link to="/login">Sign In</Link>
       </p>

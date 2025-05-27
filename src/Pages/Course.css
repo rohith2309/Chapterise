@@ -1,0 +1,86 @@
+.Chapter-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  border: 3px solid darkgoldenrod; 
+  justify-content: center;
+}
+    
+
+.chapter-section {
+    max-height: 500px;
+    max-width: 400px; 
+    overflow-y: auto;  
+    border: 2px solid darkgoldenrod;
+    font-family:'Times New Roman', Times, serif;
+
+    border-radius: 4px; 
+    padding: 30px;
+    margin: 2rem;
+    scrollbar-color: darkgoldenrod transparent; 
+
+    color:rgb(255, 150, 12);
+}
+.chapter-section ul {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+}
+.chapter-section li {
+    padding: 8px;
+    cursor: pointer; 
+    border-bottom: 1px solid #e6880e; 
+}
+.chapter-section li:last-child {
+    border-bottom: none; /* Remove border from the last item */
+}
+.chapter-section li:hover {
+    background-color: #32297c; /* Highlight on hover */
+}
+.video-section {
+    display: flex;
+    margin-top: 0px;
+    padding: 20px;
+    width: 700px;
+    height: 500px; /* Set a fixed height for the video section */
+    flex-direction: column;
+    margin: 2rem;
+    background-color: rgb(21, 21, 17);
+    border: 2px solid darkgoldenrod; /* Optional: Add a border for visibility */
+  }
+  
+  .video-box {
+      
+      height: 90%;
+      width: 90%; 
+      border-radius: 4px; 
+      padding: 30px;
+  }
+  .video-section h4{
+    padding:20px;
+    overflow-wrap: normal;
+
+    align-items: center;        
+    font-family: 'Times New Roman', Times, serif;
+}
+
+  @media (max-width: 768px) { /* Changed from 1200px to 768px */
+    .Chapter-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .chapter-section,
+    .video-section {
+      max-width: 100%;
+      width: 100%;
+      margin: 1rem 0;
+    }
+    .video-section h4{
+        padding:20px;
+        overflow-wrap: normal;
+
+        align-items: center;        
+        font-family: 'Times New Roman', Times, serif;
+    }
+  }
+  

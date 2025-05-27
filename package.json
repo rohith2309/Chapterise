@@ -24,6 +24,7 @@
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
     "react-player": "^2.16.0",
+    "react-player-custom": "^1.11.14",
     "react-router-dom": "^7.5.0",
     "tailwind-merge": "^3.1.0",
     "tailwindcss": "^4.1.3"

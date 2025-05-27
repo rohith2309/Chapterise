@@ -13,7 +13,7 @@ const DashBoard = () => {
 
   return (
     <>
-    <div>DashBoard</div>
+    
     <div className="courses-page p-5">
       <h1 className="text-2xl font-bold mb-4">Your Courses</h1>
       <div className='course-container'>

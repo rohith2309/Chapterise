@@ -4,7 +4,7 @@ import { signInUser, signInWithGoogle } from '../../lib/Auth';
 
 import AuthForm from '../../Components/AuthForm';
 import { Link, useNavigate } from 'react-router-dom';
-import DashBoard from '../../Pages/DashBoard';
+
 
 const SignIn = () => {
   const [loading, setLoading] = useState(false);
@@ -27,7 +27,7 @@ const SignIn = () => {
     }
   };
 
-  const handleGoogleSignIn = async () => {
+  /*const handleGoogleSignIn = async () => {
     setLoading(true);
     setError(null);
     try {
@@ -39,7 +39,7 @@ const SignIn = () => {
     } finally {
       setLoading(false);
     }
-  };
+  };*/
 
   return (
     <div className="auth-container">
@@ -51,9 +51,7 @@ const SignIn = () => {
         error={error}
         success={success}
       />
-      <button onClick={handleGoogleSignIn} disabled={loading} style={{ marginTop: '10px', width: '100%', padding: '10px' }}>
-        {loading ? 'Processing...' : 'Continue with Google'}
-      </button>
+      
       <p style={{ textAlign: 'center', marginTop: '15px' }}>
         Don’t have an account? <Link to="/login/signup">Sign Up</Link>
       </p>
