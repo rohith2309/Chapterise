@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route,Link } from 'react-router-dom';
 import Login from './Pages/Login';
 import Home from './Pages/Home';
 import DashBoard from './Pages/DashBoard';
-import Player from './Pages/Player';
 import PrivateRoute from './Components/LoginModule/PrivateRoute';
 import './App.css';
 import { AuthProvider } from './context/AuthContext';
