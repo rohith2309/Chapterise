@@ -1,11 +1,10 @@
-import React, { use } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import { useState,useEffect,useRef } from "react";
-import { doc,getDoc } from "firebase/firestore";
-import  "./course.css"
+
+import  "./Course.css"
 import { useAuth } from "../context/AuthContext";
 import ReactPlayer from "react-player";
-import Player from "./Player";
 
 const API_KEY = import.meta.env.VITE_YOUTUBE_API;
 
