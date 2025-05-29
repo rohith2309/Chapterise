@@ -25,8 +25,17 @@ function Course(){
     if (player) {
         const seconds = timestamp.split(':').reduce((acc, time) => (60 * acc) + parseInt(time));
         player.seekTo(seconds, 'seconds');
+        
     }
-}
+  }
+  function Setup(){
+    const player = PlayerRef.current;
+    if (player) {
+        player.seekTo(0, 'seconds');
+        player.play(false);
+    }
+  }
+
     useEffect(() => {   
         const fetchVideoDetails = async () => {
             try {
@@ -70,8 +79,25 @@ function Course(){
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
       {!loading && !error && (
-
+        <>
+       
         <div className="Chapter-container">
+          
+          <div className="video-section">
+            <h3>{title}</h3>
+            
+           <div className="video-box">
+             <ReactPlayer
+              ref={PlayerRef}
+              onReady={()=>{Setup}}
+              playing={true}
+              url={`https://www.youtube.com/watch?v=${id}`}
+              controls={true}
+              width="100%"
+              height="100%"
+            />
+            </div>
+          </div>
           
           <div className="chapter-section">
 
@@ -89,25 +115,9 @@ function Course(){
           )}
           </div>
 
-          <div className="video-section">
-
-            <div className="video-box">
-              <ReactPlayer
-                ref={PlayerRef}
-                url={`https://www.youtube.com/watch?v=${id}`}
-                controls={true}
-                width="100%"
-                height="100%"
-              />
-              <h4>{title}</h4>
-
-            </div>
-
-            
-
-
-          </div>
+          
         </div>
+        </>
       )}
     </>
     )

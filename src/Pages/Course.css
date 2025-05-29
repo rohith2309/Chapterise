@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Space+Grotesk:wght@300..700&display=swap');
+
 .Chapter-container {
   display: flex;
   flex-direction: row;
@@ -13,13 +15,19 @@
     overflow-y: auto;  
     border: 2px solid darkgoldenrod;
     font-family:'Times New Roman', Times, serif;
-
+    background-color: rgb(21, 21, 17);
     border-radius: 4px; 
     padding: 30px;
     margin: 2rem;
     scrollbar-color: darkgoldenrod transparent; 
 
     color:rgb(255, 150, 12);
+}
+h3{
+    color: rgb(255, 150, 12);
+    font-family: 'Times New Roman', Times, serif;
+    
+    padding: 20px;
 }
 .chapter-section ul {
     list-style: none; 
@@ -45,6 +53,7 @@
     height: 500px; /* Set a fixed height for the video section */
     flex-direction: column;
     margin: 2rem;
+  
     background-color: rgb(21, 21, 17);
     border: 2px solid darkgoldenrod; /* Optional: Add a border for visibility */
   }
@@ -56,12 +65,14 @@
       border-radius: 4px; 
       padding: 30px;
   }
-  .video-section h4{
-    padding:20px;
+  .video-section h3{
+    padding:10px;
     overflow-wrap: normal;
+    font-family: "Fredericka the Great", serif;
 
-    align-items: center;        
-    font-family: 'Times New Roman', Times, serif;
+    color: rgb(255, 63, 5);
+
+    
 }
 
   @media (max-width: 768px) { /* Changed from 1200px to 768px */
