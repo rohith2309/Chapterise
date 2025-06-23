@@ -4,94 +4,156 @@
   display: flex;
   flex-direction: row;
   gap: 2rem;
-  border: 3px solid darkgoldenrod; 
+  border: 3px solid darkgoldenrod;
   justify-content: center;
 }
-    
 
 .chapter-section {
-    max-height: 500px;
-    max-width: 400px; 
-    overflow-y: auto;  
-    border: 2px solid darkgoldenrod;
-    font-family:'Times New Roman', Times, serif;
-    background-color: rgb(21, 21, 17);
-    border-radius: 4px; 
-    padding: 30px;
-    margin: 2rem;
-    scrollbar-color: darkgoldenrod transparent; 
+  max-height: 500px;
+  max-width: 400px;
+  overflow-y: auto;
+  border: 2px solid darkgoldenrod;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: rgb(21, 21, 17);
+  border-radius: 4px;
+  padding: 30px;
+  margin: 2rem;
+  scrollbar-color: darkgoldenrod transparent;
+  color: rgb(255, 150, 12);
+}
 
-    color:rgb(255, 150, 12);
+h3 {
+  color: rgb(255, 150, 12);
+  font-family: 'Times New Roman', Times, serif;
+  padding: 20px;
 }
-h3{
-    color: rgb(255, 150, 12);
-    font-family: 'Times New Roman', Times, serif;
-    
-    padding: 20px;
-}
+
 .chapter-section ul {
-    list-style: none; 
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
+
 .chapter-section li {
-    padding: 8px;
-    cursor: pointer; 
-    border-bottom: 1px solid #e6880e; 
+  padding: 8px;
+  cursor: pointer;
+  border-bottom: 1px solid #e6880e;
 }
+
 .chapter-section li:last-child {
-    border-bottom: none; /* Remove border from the last item */
+  border-bottom: none;
 }
+
 .chapter-section li:hover {
-    background-color: #32297c; /* Highlight on hover */
+  background-color: #32297c;
 }
+
 .video-section {
-    display: flex;
-    margin-top: 0px;
-    padding: 20px;
-    width: 700px;
-    height: 500px; /* Set a fixed height for the video section */
-    flex-direction: column;
-    margin: 2rem;
-  
-    background-color: rgb(21, 21, 17);
-    border: 2px solid darkgoldenrod; /* Optional: Add a border for visibility */
-  }
-  
-  .video-box {
-      
-      height: 90%;
-      width: 90%; 
-      border-radius: 4px; 
-      padding: 30px;
-  }
-  .video-section h3{
-    padding:10px;
-    overflow-wrap: normal;
-    font-family: "Fredericka the Great", serif;
-
-    color: rgb(255, 63, 5);
-
-    
+  display: flex;
+  margin-top: 0px;
+  padding: 20px;
+  width: 700px;
+  height: 500px;
+  flex-direction: column;
+  margin: 2rem;
+  background-color: rgb(21, 21, 17);
+  border: 2px solid darkgoldenrod;
 }
 
-  @media (max-width: 768px) { /* Changed from 1200px to 768px */
-    .Chapter-container {
-      flex-direction: column;
-      align-items: center;
-    }
-    .chapter-section,
-    .video-section {
-      max-width: 100%;
-      width: 100%;
-      margin: 1rem 0;
-    }
-    .video-section h4{
-        padding:20px;
-        overflow-wrap: normal;
+.video-box {
+  border: 2px solid darkgoldenrod;
+  height: 90%;
+  width: 90%;
+  border-radius: 4px;
+  padding: 30px;
+}
 
-        align-items: center;        
-        font-family: 'Times New Roman', Times, serif;
-    }
-  }
-  
+/* Chat Bubble and Pop-up Styles */
+.chat-bubble {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #32297c;
+  border: 2px solid darkgoldenrod;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.chat-bubble:hover {
+  background-color: #4b3f9e;
+}
+
+.chat-popup {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  max-height: 400px;
+  background-color: rgb(21, 21, 17);
+  border: 2px solid darkgoldenrod;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  padding: 10px;
+  background-color: #32297c;
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  cursor: pointer;
+}
+
+.chat-messages {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #e6880e;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: rgb(21, 21, 17);
+}
+
+.chat-message {
+  margin-bottom: 8px;
+}
+
+.chat-message.user {
+  text-align: right;
+  color: rgb(255, 150, 12);
+}
+
+.chat-message.ai {
+  text-align: left;
+  color: #daba05;
+}
+
+.chat-message.system {
+  text-align: center;
+  color: #ff0000;
+}
+
+.chat-input {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background-color: rgb(21, 21, 17);
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid darkgoldenrod;
+  border-radius: 4px;
+  background-color: rgb(21, 21, 17);
+  color: rgb(255, 150, 12);
+}
