@@ -9,3 +9,4 @@ langchain_community
 langchain
 langchain-google-genai
 langchain-core
+websockets
