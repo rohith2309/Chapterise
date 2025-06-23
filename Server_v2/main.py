@@ -83,6 +83,7 @@ async def get_chapters(video: VideoRequest):
             f'https://www.youtube.com/watch?v={video.videoId}', 
             headers=headers
         )
+        print("YouTube response status:", response.status_code)
         response.raise_for_status()
 
         if 'ytInitialData = ' not in response.text:
