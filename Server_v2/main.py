@@ -24,16 +24,17 @@ app= FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://chapterise.vercel.app/"],  # Allows all origins
+    allow_origins=[" https://chapterise.vercel.app",
+        "http://localhost:5173"], 
     allow_credentials=True,
-    allow_methods=["*"],  # Allows all methods
-    allow_headers=["*"],  # Allows all headers
+    allow_methods=["*"], 
+    allow_headers=["*"], 
 )
 llm = ChatGoogleGenerativeAI(
-    model="gemini-1.5-flash",  # Updated to latest recommended model
+    model="gemini-1.5-flash", 
     google_api_key=GOOGLE_API_KEY,
     temperature=0,
-    max_tokens=None,  # Let the model decide
+    max_tokens=None,  
     timeout=None,
     max_retries=2,
 )
