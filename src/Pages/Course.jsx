@@ -83,7 +83,10 @@ function Course(){
     if (!isChatOpen) return;
 
     // Create WebSocket connection
-    wsRef.current = new WebSocket(`ws://localhost:5000/ws/chat/${id}`);
+     const backendBase = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+    const wsProtocol = backendBase.startsWith("https") ? "wss" : "ws";
+    const wsUrl = `${wsProtocol}://${backendBase.replace(/^https?:\/\//, "")}/ws/chat/${id}`;
+    wsRef.current = new WebSocket(wsUrl);
 
   
     wsRef.current.onmessage = (event) => {
