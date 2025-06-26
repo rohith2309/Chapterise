@@ -158,7 +158,7 @@ async def websocket_chat(websocket: WebSocket, videoId: str):
         # Send welcome message
         await websocket.send_text(json.dumps({
             "type": "system",
-            "message": f"Hi I'm FABI your learning assistant. You can now ask questions about the video content,Happy learning!. Type 'exit' to end the session."
+            "message": f"Hi I'm FABI your learning assistant. You can now ask questions about the video content,Happy learning!. Type 'exit' to end the session. {transcript[:100]}..."
         }))
         
         while True:
