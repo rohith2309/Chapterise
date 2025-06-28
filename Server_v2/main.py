@@ -40,7 +40,7 @@ llm = ChatGoogleGenerativeAI(
 )
 
 prompt_template = ChatPromptTemplate.from_messages([
-    ("system", "You are a helpful assistant that answers questions based on a YouTube video transcript. Provide clear, concise, and accurate answers based only on the information provided in the transcript."),
+    ("system", "You are a helpful assistant that answers questions based on a YouTube video transcript. Provide clear, concise, and accurate answers based only on the information provided in the transcript.You can refer web search results if needed, but prioritize the transcript content, help the user understand the video content, and provide detailed explanations when necessary to enhance understanding.Help them with the roadmap for learning if needed"),
     ("human", "Here is the transcript: {transcript}\n\nUser's question: {question}\n\nPlease provide a detailed answer based on the transcript content.")
 ])
 
@@ -154,11 +154,17 @@ async def websocket_chat(websocket: WebSocket, videoId: str):
             }))
             await websocket.close()
             return
+        #write transcript to data.txt file
+        with open("data.txt","w", encoding="utf-8") as file:
+            file.write(transcript)
+            file.close()
+        print(f"Transcript fetched for video ID: {videoId}")
+        
         
         # Send welcome message
         await websocket.send_text(json.dumps({
             "type": "system",
-            "message": f"Hi I'm FABI your learning assistant. You can now ask questions about the video content,Happy learning!. Type 'exit' to end the session. {transcript[:100]}..."
+            "message": f"Hi I'm FABI your learning assistant. You can now ask questions about the video content,Happy learning!. Type 'exit' to end the session..."
         }))
         
         while True:

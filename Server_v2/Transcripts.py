@@ -25,10 +25,14 @@ def fetch_youtube_transcript(videoId: str) -> str:
     
         if documents:
          transcript_txt_formatted=formatter.format_transcript(documents)
-         transcript_txt = json.dumps(json.loads(transcript_txt_formatted), indent=4, ensure_ascii=False)
+         transcript_dict = json.loads(transcript_txt_formatted)
+         
          logging.info(f"Transcript fetched successfully for video ID: {videoId}")
-         logging.debug(f"Transcript content: {transcript_txt}")    
-         return transcript_txt
+         logging.debug(f"Transcript content: {transcript_txt_formatted}")
+         transcript=""
+         for i in transcript_dict:
+            transcript+=i["text"]    
+         return transcript
      
         else:
             return "No transcript available for this video."
