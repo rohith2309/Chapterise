@@ -134,7 +134,12 @@ function Course(){
 
     return (
         <>
-            {loading && <p>Loading...</p>}
+            {/* Loading Spinner Animation (replaces Loading...) */}
+            {loading && (
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 120 }}>
+                  <div className="spinner" aria-label="Loading" />
+                </div>
+            )}
             {error && <p style={{ color: "red" }}>Error: {error}</p>}
             {!loading && !error && (
                 <>
@@ -184,6 +189,7 @@ function Course(){
                                         </div>
                                     ))}
                                 </div>
+                                {/* Redesigned chat input: 90% input, 10% button */}
                                 <div className="chat-input">
                                     <input
                                         type="text"
@@ -191,8 +197,14 @@ function Course(){
                                         onChange={(e) => setUserMessage(e.target.value)}
                                         placeholder="Ask a question about the video..."
                                         onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+                                        style={{ flex: '0 1 90%' }}
                                     />
-                                    <button onClick={sendMessage}>Send</button>
+                                    <button
+                                        onClick={sendMessage}
+                                        style={{ flex: '0 1 10%', minWidth: 0, padding: '0.7rem 0.2rem' }}
+                                    >
+                                        ➤
+                                    </button>
                                 </div>
                             </div>
                         )}

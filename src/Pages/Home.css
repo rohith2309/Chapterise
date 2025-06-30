@@ -1,7 +1,9 @@
-.Home-page{
+.Home-page {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 70vh;
+    background: #f8f9fa;
+    padding: 2rem;
 }

@@ -1,198 +1,213 @@
 /* src/App.css */
 
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
 
 body {
-  
-  background-color: #000000; /* Light gray background */
+  background: #f6fbff;
   margin: 0;
   padding: 0;
-  color: hsl(0, 0%, 100%); /* Dark gray text for better readability */
+  color: #234;
+  font-family: 'Merriweather', serif;
+  min-height: 100vh;
 }
-h1{
-  font-family: "Fredericka the Great", serif;
-  margin: 1rem;
-  padding: 0.25rem;
+
+h1, h4, h5 {
+  font-family: 'Merriweather', serif;
+  margin: 1.5rem 0 1rem 0;
   text-align: center;
-  font-size: 2rem;
-  font-weight: 600; 
-  margin: 1rem;;
-  color: #db951a;
+  font-weight: 700;
+  color: #2a7f62;
+  letter-spacing: 1px;
 }
+h1 { font-size: 2.2rem; }
+h4 { font-size: 1.25rem; color: #5bb6a8; }
+h5 { font-size: 1rem; color: #2a7f62; text-align: left; }
 
-
-h4 {
-  font-size: 1.25rem;
-  font-family: "Fredericka the Great", serif;
-  font-weight: 400;
-  padding: 1px;
-  text-align: center;
-  margin-bottom: 1rem;
-  color: #ff7300;
-}
-
-h5 {
-  font-size: 1rem;
-  font-weight: 300;
-  margin-bottom: 1rem;
-  text-align: left;
-  color: #f8cb01;
-  font-family: "Fredericka the Great", serif;
-
-  
-}
-
-nav{
-  
-  background: #675386;
-  padding: 1rem;
+nav {
+  background: #eaf6fa;
+  padding: 1rem 2rem;
   display: flex;
-  justify-Content: space-between;
-  align-Items: center;
-  color: rgb(255, 255, 255);
-  
+  justify-content: space-between;
+  align-items: center;
+  color: #2a7f62;
+  border-bottom: 2px solid #d3e7ef;
+  box-shadow: 0 2px 8px rgba(90, 180, 180, 0.04);
 }
 nav a {
-  color: #ff9409ee; /* Dark gray links */
+  color: #2a7f62;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   margin: 0 1rem;
   text-decoration: none;
+  border-radius: 12px;
+  padding: 0.25rem 0.75rem;
+  transition: background 0.2s, color 0.2s;
+}
+nav a:hover {
+  background: #d3e7ef;
+  color: #17604e;
 }
 a {
-  color: #f7cb09; /* Blue links */
+  color: #2a7f62;
   text-decoration: none;
   font-weight: 500;
+  border-radius: 12px;
+  transition: background 0.2s, color 0.2s;
+}
+a:hover {
+  background: #d3e7ef;
+  color: #17604e;
 }
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
-
 .form-group label {
   display: block;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #6b7280; /* Muted gray for labels */
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2a7f62;
   margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
 }
 .form-group input {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #d1d5db; /* Light gray border */
-  border-radius: 6px;
+  padding: 0.85rem 1rem;
+  border: 2px solid #bfe3e0;
+  border-radius: 10px;
   font-size: 1rem;
-  color: #374151; /* Darker gray text */
-  background-color: #f9fafb; /* Light gray background */
+  color: #17604e;
+  background: #fafdff;
   box-sizing: border-box;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(90, 180, 180, 0.04);
 }
-
-a:hover {
-  text-decoration: underline;
+.form-group input:focus {
+  border: 2px solid #5bb6a8;
+  box-shadow: 0 2px 8px rgba(90, 180, 180, 0.10);
+  background: #eaf6fa;
+}
+button {
+  width: auto;
+  min-width: 120px;
+  padding: 0.7rem 1.2rem;
+  background: #5bb6a8;
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(90, 180, 180, 0.08);
+  letter-spacing: 1px;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+  margin-top: 0.5rem;
 }
 button:hover {
-  background-color: #ffaf03; /* Darker blue on hover */
+  background: #2a7f62;
+  color: #eaf6fa;
+  transform: translateY(-1px) scale(1.03);
 }
-.app-container{
+button:disabled {
+  background: #bfe3e0;
+  color: #bdbdbd;
+  cursor: not-allowed;
+}
+.app-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 .auth-container {
-  border: 2px solid goldenrod;
-  border-radius: 5px;
-  padding: 30px;
-  max-width:600px;
-  width: 500px;
-  background-color: #1a1a1a;
-  color: #f7cb09;
-  font-family: "Fredericka the Great", serif;
-  margin: 1.5rem;;
-
-  
-}
-
-
-
-.form-group {
-  margin: 10px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  color: rgb(255, 183, 0);
-}
-
-
-.form-group input{
+  border: 2px solid #bfe3e0;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  max-width: 400px;
   width: 100%;
-  padding: 10px;
-  color: #ffa600;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  font-size: 15px;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(206, 24, 24, 0.651);
-  background-color: #221e1e85;
-  outline: none;
-  border: none;
-  border-bottom: 5px solid #ccc;
-  
+  background: #fafdff;
+  color: #17604e;
+  margin: 2rem auto;
+  box-shadow: 0 2px 12px rgba(90, 180, 180, 0.06);
 }
-.form-group input:focus{
-  border-bottom: 5px solid #ffa600;
-  box-shadow: 0 2px 4px rgba(240, 147, 8, 0.651);
-}
-
-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #ff7300;
-  color: rgb(255, 255, 255);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  display: block;
-}
-
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
 .success-message {
-  color: green;
+  color: #388e3c;
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 }
-
 .error-message {
-  color: red;
+  color: #e53935;
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 }
-
 p {
   text-align: center;
-  margin-top: 15px;
+  margin-top: 1rem;
+  color: #2a7f62;
 }
-
-a {
-  color: #ffbb00;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.sign-out-button{
-  
-  padding: 10px 20px;
-  max-width: 100px;
+.sign-out-button {
+  padding: 0.5rem 1.2rem;
+  max-width: 120px;
   min-width: 100px;
+  background: #5bb6a8;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+.sign-out-button:hover {
+  background: #2a7f62;
+  color: #eaf6fa;
+}
 
+@media (max-width: 600px) {
+  body {
+    font-size: 0.97rem;
+    padding: 0;
+  }
+  h1 {
+    font-size: 1.3rem;
+    margin: 1rem 0;
+  }
+  h4 {
+    font-size: 1.05rem;
+  }
+  h5 {
+    font-size: 0.95rem;
+  }
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.7rem 1rem;
+  }
+  nav a {
+    margin: 0.3rem 0.5rem;
+    font-size: 0.97rem;
+    padding: 0.2rem 0.5rem;
+  }
+  .app-container {
+    flex-direction: column;
+    padding: 0 0.5rem;
+  }
+  .auth-container {
+    max-width: 98vw;
+    width: 100%;
+    padding: 1.2rem 0.5rem;
+    margin: 1rem auto;
+    border-radius: 8px;
+  }
+  .form-group input,
+  button,
+  .sign-out-button {
+    font-size: 0.97rem;
+    padding: 0.6rem 0.7rem;
+    border-radius: 8px;
+    min-width: 90px;
+  }
+  .form-group label {
+    font-size: 0.97rem;
+  }
 }
 
 
