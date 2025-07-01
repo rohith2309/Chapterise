@@ -10,3 +10,5 @@ langchain
 langchain-google-genai
 langchain-core
 websockets
+nltk
+sentence-transformers

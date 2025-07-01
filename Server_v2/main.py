@@ -12,8 +12,12 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from dotenv import load_dotenv
-
+from sentence_transformers import SentenceTransformer,util
+import nltk
 from Transcripts import fetch_youtube_transcript
+from cleaners import clean_text, chunk_text, retrive_context
+
+nltk.download('punkt_tab')
 load_dotenv()
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 app= FastAPI(
@@ -38,6 +42,8 @@ llm = ChatGoogleGenerativeAI(
     timeout=None,
     max_retries=2,
 )
+
+model = SentenceTransformer('all-MiniLM-L6-v2')
 
 prompt_template = ChatPromptTemplate.from_messages([
     ("system", "You are a helpful assistant that answers questions based on a YouTube video transcript. Provide clear, concise, and accurate answers based only on the information provided in the transcript.You can refer web search results if needed, but prioritize the transcript content, help the user understand the video content, and provide detailed explanations when necessary to enhance understanding.Help them with the roadmap for learning if needed"),
@@ -74,6 +80,8 @@ async def health_check():
 
 @app.post("/api/chapters", response_model=ChapterResponse)
 async def get_chapters(video: VideoRequest):
+    
+    
     try:
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
@@ -154,12 +162,16 @@ async def websocket_chat(websocket: WebSocket, videoId: str):
             }))
             await websocket.close()
             return
-        #write transcript to data.txt file
+       
+        
+        cleaned_transcript = clean_text(transcript)
+        chunks = chunk_text(cleaned_transcript)
+        
+         #write transcript to data.txt file
         with open("data.txt","w", encoding="utf-8") as file:
-            file.write(transcript)
+            file.write(" ".join(chunks))
             file.close()
         print(f"Transcript fetched for video ID: {videoId}")
-        
         
         # Send welcome message
         await websocket.send_text(json.dumps({
@@ -177,10 +189,10 @@ async def websocket_chat(websocket: WebSocket, videoId: str):
                         "message": "Chat session ended. Goodbye!"
                     }))
                     break
-                
-                
+                retrive_relevant_context = retrive_context(user_message, chunks, model)
+                context= "\n".join(retrive_relevant_context)
                 ai_response = await chat_chain.ainvoke({
-                    "transcript": transcript,
+                    "transcript": context,
                     "question": user_message
                 })
                 
